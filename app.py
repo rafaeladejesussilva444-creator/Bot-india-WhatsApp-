@@ -1,15 +1,14 @@
-
 from flask import Flask, request, jsonify
 import os
 
 app = Flask(__name__)
-VERIFY_TOKEN = "123456"  # tem que ser igual ao do Facebook
+VERIFY_TOKEN = "123456"
 
 @app.route("/", methods=["GET"])
 def home():
     return "Bot India WhatsApp rodando!"
 
-@app.route("/webhook", methods=["GET"])  # ESSA LINHA NOVA
+@app.route("/webhook", methods=["GET"])
 def verify():
     token = request.args.get("hub.verify_token")
     challenge = request.args.get("hub.challenge")
